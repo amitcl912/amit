@@ -1,0 +1,41 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the kaprekarNumbers function below.
+def kaprekarNumbers(p, q):
+    indicator=1
+    for num in range(p,q+1):
+        
+        dig_num=0
+        num_square=0
+        sum_right_digit=0
+        num_square=num**2
+        sum_left_digit=0
+        left_right_sum=0
+        temp_num=num
+        mul=1
+        while num!=0:
+            num=num//10
+            dig_num=dig_num+1
+        for i in range(dig_num):
+            mul=mul*10
+        sum_right_digit=num_square%mul
+        num_square=num_square//mul
+        sum_left_digit=num_square
+        left_right_sum=sum_right_digit+sum_left_digit
+        if left_right_sum==temp_num:
+            indicator=0
+            print(temp_num,end=" ")
+    if indicator>0:
+        print("INVALID RANGE")
+if __name__ == '__main__':
+    p = int(input())
+
+    q = int(input())
+
+    kaprekarNumbers(p, q)
